@@ -2,31 +2,15 @@
 -Tema:
 	Personagem
 		Fantasma (Feminina - 8 anos)
-		Quer voltar à vida!
-		Tem o olho das Moiras
+		Quer voltar à vida! / Tem o olho das Moiras
 	3 "Co-NPCs" As Moiras
 		Apostam a vida da Protagonista
-		Um Sempre Mente
-			Quer levá-la à morte
-		Um Dúbio
-			Neutro
-		Um Charadista
-			Quer levá-la à vida
-	Antagonista
-		Caronte
-
-	Ambiente
-		Medieval/Dungeon
-
+		Um Sempre Mente -> Quer levá-la à morte
+		Um Dúbio -> Neutro
+		Um Charadista -> Quer levá-la à vida
+	Antagonista -> Caronte
+	Ambiente -> Medieval/Dungeon
 -Jogabilidade:
 	2D Scrolling
-	Controles
-		Esquerda/Direita
-		Pula
-		Agacha
-
--Puzzles:
-	1. O Sentinela
-	2. O Patrulheiro
-	3. O Rastreador
-	4. O Aniquilador
+	Controles: Esquerda/Direita - 	Pula - Agacha - Interage
+-Puzzles: 1. O Sentinela / 2. O Patrulheiro /3. O Rastreador / 4. O Aniquilador
