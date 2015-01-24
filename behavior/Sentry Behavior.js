@@ -9,15 +9,15 @@
  */
 
 // Constants
-var STANDARD_AREA_OF_SIGHT_X = 6;
-var STANDARD_AREA_OF_SIGHT_Y_UP = 1.5;
-var STANDARD_AREA_OF_SIGHT_Y_DOWN = 0.9;
 var STANDARD_SPEED = 3;
 
 // Protagonist Attributes
 var protagonist : GameObject;
 var protagonistPositionX : int;
 var protagonistPositionY : int;
+
+// Area Of Sight Attributes
+var areaOfSight : AreaOfSight_Interaction;
 
 // Self Attributes
 var isProtagonistSpotted : boolean;
@@ -31,6 +31,7 @@ var positionY : int;
  */
 
 function Start () {
+	areaOfSight = GameObject.Find("AreaOfSightSentry").GetComponent(AreaOfSight_Interaction);
 	isProtagonistSpotted = false;
 	positionX = transform.position.x;
 	positionY = transform.position.y;
@@ -64,9 +65,7 @@ function checkArea() {
 
 function isProtagonistOnSight() {
 	var isProtagonistOnSight = false;
-	if((protagonistPositionX > positionX - STANDARD_AREA_OF_SIGHT_X)
-		&& (protagonistPositionY > positionY - STANDARD_AREA_OF_SIGHT_Y_UP)
-		&& (protagonistPositionY < positionY + STANDARD_AREA_OF_SIGHT_Y_DOWN)) {
+	if(areaOfSight.protagonistIsOnSight == true) {
 		isProtagonistOnSight = true;
 	}
 	return isProtagonistOnSight;
