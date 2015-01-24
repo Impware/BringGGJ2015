@@ -10,7 +10,7 @@
  */
  
 // Constants
-var STANDARD_SPEED_X = 10;
+var STANDARD_SPEED_X = 300;
 var STANDARD_SPEED_Y = 10;
 
 // Self Attributes
@@ -30,15 +30,19 @@ function Start () {
 
 function Update () {
 	if(isGameOver == false) {
-		if (Input.GetAxis("Horizontal") > 0) {
-			transform.Translate(Vector2(STANDARD_SPEED_X,0) * Time.deltaTime);
+		if ((Input.GetAxis("Horizontal") == 0) && jump == false) {
+			rigidbody2D.velocity = Vector2(0,rigidbody2D.velocity.y);
 		}
-		if (Input.GetAxis("Horizontal") < 0) {
-			transform.Translate(Vector2(-STANDARD_SPEED_X,0) * Time.deltaTime);
+		else if (Input.GetAxis("Horizontal") > 0) {
+			rigidbody2D.velocity = Vector2(STANDARD_SPEED_X * Time.deltaTime,rigidbody2D.velocity.y);
 		}
+		else if (Input.GetAxis("Horizontal") < 0) {
+			rigidbody2D.velocity = Vector2(-STANDARD_SPEED_X * Time.deltaTime,rigidbody2D.velocity.y);
+		}
+
 		if ((jump == false) && (rigidbody2D.velocity.y == 0)){
 			if (Input.GetAxis("Vertical") > 0) {
-				rigidbody2D.velocity = Vector2(0,STANDARD_SPEED_Y);
+				rigidbody2D.velocity = Vector2(rigidbody2D.velocity.x, STANDARD_SPEED_Y);
 				jump = true;
 			}
 		}
@@ -48,20 +52,21 @@ function Update () {
 function OnCollisionEnter2D(collide:Collision2D) {
 	if(isGameOver == false) {
 		var objectCollided = collide.gameObject;
-		if(isOnGround(objectCollided)) {
+		if(isOnGround(objectCollided) == true) {
 			jump = false;
 		}
-		else if(isAnEnemy(objectCollided)) {
+		else if(isAnEnemy(objectCollided) == true) {
 			Debug.Log("GAME OVER");
 			isGameOver = true;
 		}
+
 	}
 }
 
 function isOnGround(objectCollided:GameObject) {
 	var isOnGround = false;
-	if((objectCollided.tag == "Ground")
-		&& (rigidbody2D.velocity.y <= 0)
+	if((rigidbody2D.velocity.y <= 0)
+		&& (objectCollided.tag == "Ground")
 		&& (objectCollided.transform.position.y < transform.position.y)) {
 		isOnGround = true;
 	}
