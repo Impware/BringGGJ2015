@@ -1,4 +1,4 @@
-#pragma strict
+﻿#pragma strict
 
 /*	SCOUT BEHAVIOR
  *	This script set standard actions to NPC enemy Scout

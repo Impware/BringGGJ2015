@@ -1,4 +1,4 @@
-#pragma strict
+﻿#pragma strict
 
 /*	STAIR INTERACTION
  *	This script set standard actions of other entities
@@ -18,12 +18,15 @@ var STANDARD_SPEED = 0.3;
 var stair : GameObject;
 
 // Self Attributes
+var animator : Animator;
+
 var isInteractive : boolean;
 var inInteraction : boolean;
 var isInCenterOfTheStair : boolean;
 var illGoDown : boolean;
 
 function Start () {
+	animator = GetComponent("Animator");
 	isInteractive = true;
 	inInteraction = false;
 	isInCenterOfTheStair = false;
@@ -44,6 +47,7 @@ function Update () {
 		else {
 			if(inInteraction == true) {
 				if(isInCenterOfTheStair == true) {
+					animator.SetBool("Climbing", true);
 					if(illGoDown == true) {
 						goDown();
 					}
@@ -54,6 +58,9 @@ function Update () {
 				else {
 					goToTheCenterOfTheStair();
 				}
+			}
+			else {
+				animator.SetBool("Climbing", false);
 			}
 		}
 	}
