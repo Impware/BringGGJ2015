@@ -1,1 +1,32 @@
+<last_moments>
+  <JK_bridge>
+    <$
+      cellphone.add("photos")
+      while areWeTalking do
+        memories.add("everything")
+      end
+      love++
+    $/>
+  </JK_bridge>
+  <brasilia_airport>
+    <last_hug>
+      <$ myHeart.updateFeelings("Pain, Love, Happiness, Sadness") $/>
+      <$ yourHeart.throwResultsOfTheFeelings("Tears") $/>
+    </last_hug>
+  </brasilia_airport>
+<last_moments>
 
+<first_moments_alone>
+  <$
+    while amIMissingYou do
+      try
+        notFeel("Saudade")
+      catch PainfullFeelings s
+        s.convertTo("Love")
+        echo poems
+      end
+    end
+  $/>
+</first_moments_alone>
+
+# CONSTANT https://docs.google.com/forms/d/1-pZ3JSAtNn5TayzjEI8uFnrRGz22Dd7reCEqH1YE2Ds/viewform
